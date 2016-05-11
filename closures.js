@@ -11,8 +11,7 @@ var outer = function(){
 // Above you're given a function that returns another function which has a closure over the name variable.
 // Invoke outer saving the return value into another variable called 'inner'.
 
-var inner = outer()
-inner()
+
 
 
 
@@ -39,8 +38,7 @@ var callFriend = function(){
 
   //Code Here
 
-var makeCall = callFriend();
-makeCall('435-215-9248');
+
 
 
 
@@ -53,8 +51,8 @@ makeCall('435-215-9248');
 /*
   Write a function called makeCounter that makes the following code work properly.
 */  //Code Here
-  
-  
+
+
 //Uncomment this once you make your function
 //   var count = makeCounter();
 //   count(); // 1
@@ -177,5 +175,3 @@ var funcArray = [theFunc(0),theFunc(1),theFunc(2),theFunc(3),theFunc(4),theFunc(
 
   *Hint: Don't let this fool you. Break down what's really happening here.
 */
-
-
