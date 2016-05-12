@@ -6,6 +6,7 @@ var name = 'Tyler';
 
   //Code Here
 
+
 //////////////////PROBLEM 2////////////////////
 
 
@@ -13,6 +14,7 @@ var name = 'Tyler';
 
 
   //Code Here
+
 
 
 //////////////////PROBLEM 3////////////////////
@@ -23,6 +25,7 @@ var name = 'Tyler';
 //then alerts "Welcome, " plus whatever the users name is.
 
   //Code Here
+
 
 
 //////////////////PROBLEM 4////////////////////
@@ -53,7 +56,8 @@ var name = 'Tyler';
 //Create a function called myName that returns your name
 
   //Code Here
-  
+
+
 
 
 //Now save the function definition of myName into a new variable called newMyName
@@ -63,7 +67,6 @@ var name = 'Tyler';
 //Now alert the result of invoking newMyName
 
 
-
 //////////////////PROBLEM 7////////////////////
 
 
@@ -71,6 +74,7 @@ var name = 'Tyler';
 //Create a function called outerFn which returns an anonymous function which returns your name.
 
   //Code Here
+
 
 //Now save the result of invoking outerFn into a variable called innerFn.
 
