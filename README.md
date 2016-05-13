@@ -4,13 +4,13 @@ JS-Basics
 =========
 
 ##Objective
-Better understand Javascript fundamentals by completing a series of activities
+Better understand Javascript closures by completing a series of activities
 
 ##Directions
-Fork this repo, clone your fork, then open fns-scopes.js and complete all the activities then open closures.js and complete all of those activities.
+Fork this repo, clone your fork, then open closures.js and complete all the activities.
 *COMMIT AND PUSH YOUR CODE OFTEN!*
 
-### Debugging/Visualization tools : 
+### Debugging/Visualization tools :
 One of the biggest tools in a developers disposal is the debugger. Chrome has one built-in. To use it, just open the index.html file in your browser.
 
 Another great tool for small and isolated pieces of code is : http://www.pythontutor.com/visualize.html#
