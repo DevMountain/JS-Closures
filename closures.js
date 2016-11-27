@@ -10,7 +10,7 @@ var outer = function(){
 };
 
 /****** INSTRUCTIONS PROBLEM 1 ******/
-/* Above you're given a function that returns another function which has a
+/* Above, you're given a function that returns another function which has a
 closure over the name variable. Invoke outer saving the return value into
 another variable called 'inner'. */
 
@@ -43,7 +43,7 @@ var callFriend = function(){
 };
 
 /****** INSTRUCTIONS PROBLEM 2 ******/
-/* Above you're given a callFriend function that returns another function.
+/* Above, you're given a callFriend function that returns another function.
 Create a makeCall function that when invoked logs 'Calling Jake at 435-215-9248'
 in your console. */
 
@@ -122,11 +122,11 @@ counter = counterFactory(10);
 
 /****** INSTRUCTIONS PROBLEM 5 ******/
 /* Inside the motivation function create another function called message that
-will return 'You're doing awesome, keep it up firstname lastname.' */
+will return 'You're doing awesome. Keep it up, firstname lastname.' */
 
 function motivation(firstname, lastname){
 
-  var welcomeText = 'You\'re doing awesome, keep it up ';
+  var welcomeText = 'You\'re doing awesome. Keep it up, ';
 
   // code message function here.
 
@@ -136,7 +136,7 @@ function motivation(firstname, lastname){
 
 }
 
-motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+motivation('Billy', 'Bob'); // 'You're doing awesome. Keep it up, Billy Bob
 
 
 
@@ -152,7 +152,7 @@ motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 6 ******/
-/* Inside the return create a publicMethod property that is a function that
+/* Inside the return, create a publicMethod property that is a function that
 invokes privateMethod. After you create the privateMethod. Invoke it by calling
 module.publicMethod(); outside the module scope */
 
