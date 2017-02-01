@@ -12,20 +12,21 @@ describe('closures', function () {
 		})
 	})
 
-	describe('makeCall', function () {
+	describe('callJake', function () {
 		it('should exist', function () {
-			expect(makeCall).toBeDefined();
+			expect(callJake).toBeDefined();
 		})
 		it('should be a function', function () {
-			expect(makeCall).toEqual(jasmine.any(Function));
+			expect(callJake).toEqual(jasmine.any(Function));
 		})
-		it('should be the callFriend function', function () {
-			expect(JSON.stringify(makeCall)).toEqual(JSON.stringify(callFriend()));
+		it('should return Calling Jake at 435-215-9248', function () {
+			expect( callJake('435-215-9248')).toBe('Calling Jake at 435-215-9248');        
 		})
-		//it('should return Calling Jake at 435-215-9248', function () {
-		//	expect( makeCall('435-215-9248')).toBe('Calling Jake at 435-215-9248');
-        //
-		//})
+		it('should use the dial function', function () {
+			var newCall = callFriend('Jake');
+			expect(newCall('1')).toEqual(callJake('1'));
+		})
+
 	})
 
 
@@ -131,9 +132,7 @@ describe('timeOutCounter', function() {
 		expect(timeOutCounter).toEqual(jasmine.any(Function))
 	})
 
-
-	it('should call setTimeout 5 times', function() {
-
+	it('should call setTimeout 6 times', function() {
 		timeOutCounter();
 
 		jasmine.clock().tick(500);
