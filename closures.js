@@ -44,11 +44,10 @@ var callFriend = function(name) {
 
 /****** INSTRUCTIONS PROBLEM 2 ******/
 /* Above you're given a callFriend function that returns the dial function.
-Create a callJake function that when invoked logs 'Calling Jake at 435-555-9248'
+Create a callJake function that when invoked with '435-555-9248' returns 'Calling Jake at 435-555-9248'
 in your console. */
 
   //Code Here
-
 
 
 
