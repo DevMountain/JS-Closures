@@ -34,17 +34,17 @@ another variable called 'inner'. */
 \******************************************************************************/
 
 
-var callFriend = function(){
-  var friend = 'Jake';
-  function callF(number){
-    return 'Calling ' + friend + ' at ' + number;
+var callFriend = function(name) {
+  var friend = name
+  function dial(number) {
+    return 'Calling ' + friend + ' at ' + number
   }
-  return callF;
-};
+  return dial
+}
 
 /****** INSTRUCTIONS PROBLEM 2 ******/
-/* Above you're given a callFriend function that returns another function.
-Create a makeCall function that when invoked logs 'Calling Jake at 435-215-9248'
+/* Above you're given a callFriend function that returns the dial function.
+Create a callJake function that when invoked logs 'Calling Jake at 435-555-9248'
 in your console. */
 
   //Code Here
