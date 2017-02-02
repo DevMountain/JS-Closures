@@ -2,12 +2,12 @@
 	#PROBLEM-01
 \******************************************************************************/
 
-var outer = function(){
+function outer() {
   var name = 'Tyler';
-  return function(){
+  return function() {
     return 'The original name was ' + name;
   }
-};
+}
 
 /****** INSTRUCTIONS PROBLEM 1 ******/
 /* Above you're given a function that returns another function which has a
@@ -34,10 +34,9 @@ another variable called 'inner'. */
 \******************************************************************************/
 
 
-var callFriend = function(name) {
-  var friend = name
+function callFriend(name) {
   function dial(number) {
-    return 'Calling ' + friend + ' at ' + number
+    return 'Calling ' + name + ' at ' + number
   }
   return dial
 }
@@ -123,7 +122,7 @@ counter = counterFactory(10);
 /* Inside the motivation function create another function called message that
 will return 'You're doing awesome, keep it up firstname lastname.' */
 
-function motivation(firstname, lastname){
+function motivation(firstname, lastname) {
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
@@ -135,7 +134,7 @@ function motivation(firstname, lastname){
 
 }
 
-motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
 
 
 
@@ -151,85 +150,87 @@ motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 6 ******/
-/* Inside the return create a publicMethod property that is a function that
-invokes privateMethod. After you create the privateMethod. Invoke it by calling
-module.publicMethod(); outside the module scope */
+/* Inside the module's return object create a publicMethod function that
+invokes privateMethod. Invoke this by calling module.publicMethod(); outside
+the module scope */
 
 var module = (function() {
   var person = {
     name: "phillip",
     age: 29,
-    location: 'Utah'
+    location: "Utah"
   };
 
-  var privateMethod = function(){
+  function privateMethod(){
     return "Hi, I'm " + person.name + ", age " + person.age + " from " + person.location;
-  };
+  }
 
   // Anything that is being returned is made public and can be invoked from
-	// outside our lexical scope
-
+  // outside our lexical scope
   return {
     // Code here.
   };
 
 })();
 
-// Uncomment this after you create your public method
-//   module.publicMethod();
-
-
-
-
-
-
-
-
 
 
 /******************************************************************************\
-	#PROBLEM-07
-\******************************************************************************/
-
+ #PROBLEM-07
+ \******************************************************************************/
 /****** INSTRUCTIONS PROBLEM 7 ******/
-/* Here we have a for loop that will iterate as long as i is less than or equal
-to 5. What we need to do is console.log(i) so that it logs ( 0 then 1 then 2
-then 3, etc). Run this code in your console to see what the output is. */
+/* Here we are given three arrays: an array of friends, an array of second-level
+friends (friends of friends), and an array of all users. These arrays may share
+users. Write a function that takes in our existing friends and returns
+a function that will tell us if a given user is not already a friend. */
+var friends = ["Tom", "Dick", "Harry"];
+var secondLevelFriends = ["Anne", "Harry", "Quinton"];
+var allUsers = ["Tom", "Dick", "Harry", "Anne", "Quinton", "Katie", "Mary"];
 
-// To make this code work you will need to create a new scope for every iteration.
-function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000)
-  }
+function findPotentialFriends(existingFriends) {
 
-  function newScope(i) {
-    console.log(i)
-  }
 }
-timeOutCounter();
+
+var isNotAFriend = findPotentialFriends( friends );
+// isNotAFriend(allUsers[0]); // false
+// isNotAFriend(secondLevelFriends[2]); // true
 
 
+/******************************************************************************\
+ #PROBLEM-07 -- BLACK DIAMOND
+ \******************************************************************************/
+/* Using your findPotentialFriends function from above and the Array.filter
+method, find all potential second level friends as well as potential friends
+from allUsers. */
 
-
+var potentialSecondLevelFriends = "?";
+var allPotentialFriends = "?";
 
 
 /******************************************************************************\
 	#PROBLEM-08
 \******************************************************************************/
 
-var funcArray = [];
+/****** INSTRUCTIONS PROBLEM 8 ******/
+/* Here we have a for loop that will iterate as long as i is less than or equal
+to 5. What we need to do is console.log(i) so that it logs like so:
+ 1 second after call - log 0
+ 2 seconds after call - log 1
+ 3 seconds after call - log 2
+ 4 seconds after call - log 3
+ 5 seconds after call - log 4
+ 6 seconds after call - log 5
+ However, because each call to logCounter occurs after the loop has finished,
+ the value of i has changed before the console.log executes. We'll
 
-/*
-  Make the following code work
+ Fix the code below to log the desired output.
+ */
 
-  funcArray[0]() //0
-  funcArray[1]() //1
-  funcArray[2]() //2
-  funcArray[3]() //3
-  funcArray[4]() //4
-  funcArray[5]() //5
-
-  *Hint: Don't let this fool you. Break down what's really happening here.
-*/
+function timeOutCounter() {
+  for (var i = 0; i <= 5; i++) {
+    setTimeout(function() {
+    	console.log(i)
+	}, i * 1000)
+  }
+}
+timeOutCounter();
