@@ -132,7 +132,7 @@ describe('timeOutCounter', function() {
 		expect(timeOutCounter).toEqual(jasmine.any(Function))
 	})
 
-	it('should call setTimeout 6 times', function() {
+	it('should call setTimeout 6 times with correct values', function() {
 		timeOutCounter();
 
 		jasmine.clock().tick(500);
