@@ -181,11 +181,8 @@ var module = (function() {
 /****** INSTRUCTIONS PROBLEM 7 ******/
 /* Here we are given three arrays: an array of friends, an array of second-level
 friends (friends of friends), and an array of all users. These arrays may share
-users so we must write a function that takes in our existing friends and returns
+users. Write a function that takes in our existing friends and returns
 a function that will tell us if a given user is not already a friend. */
-
-/* Here we are given an array of friends
- */
 var friends = ["Tom", "Dick", "Harry"];
 var secondLevelFriends = ["Anne", "Harry", "Quinton"];
 var allUsers = ["Tom", "Dick", "Harry", "Anne", "Quinton", "Katie", "Mary"];
