@@ -191,7 +191,7 @@ var module = (function() {
 	#Black Diamond
 \******************************************************************************/
 
-/****** INSTRUCTIONS PROBLEM 7 ******/
+/****** INSTRUCTIONS ******/
 /* 
 In timeOutCounter we have a for loop that will iterate as long as i is less than or equal
 to 5. We want to console.log(i) so that it logs each value of i ( 0 then 1 then 2
