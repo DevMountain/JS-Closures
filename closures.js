@@ -25,10 +25,6 @@ another variable called 'inner'. */
 
 
 
-
-
-
-
 /******************************************************************************\
 	#PROBLEM-02
 \******************************************************************************/
@@ -135,7 +131,7 @@ function motivation(firstname, lastname){
 
 }
 
-motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob.'
 
 
 
@@ -151,9 +147,9 @@ motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 6 ******/
-/* Inside the return create a publicMethod property that is a function that
-invokes privateMethod. After you create the privateMethod. Invoke it by calling
-module.publicMethod(); outside the module scope */
+/* Inside the function equal to the module variable, return publicMethod property
+that is a function that invokes privateMethod. After you create the privateMethod.
+Invoke it by calling module.publicMethod(); outside the module scope */
 
 var module = (function() {
   var person = {
