@@ -20,7 +20,7 @@ describe('closures', function () {
 			expect(callJake).toEqual(jasmine.any(Function));
 		})
 		it('should return Calling Jake at 435-215-9248', function () {
-			expect( callJake('435-215-9248')).toBe('Calling Jake at 435-215-9248');        
+			expect( callJake('435-215-9248')).toBe('Calling Jake at 435-215-9248');
 		})
 		it('should use the dial function', function () {
 			var newCall = callFriend('Jake');
@@ -52,131 +52,143 @@ describe('closures', function () {
 		})
 	})
 
-describe('counterFactory', function() {
-	it('should exist', function() {
-		expect(counterFactory).toBeDefined();
-		expect(counter).toBeDefined();
+	describe('counterFactory', function() {
+		it('should exist', function() {
+			expect(counterFactory).toBeDefined();
+			expect(counter).toBeDefined();
+		})
+
+		it('should be a module', function() {
+			expect(counter.inc).toEqual(jasmine.any(Function));
+			expect(counter.dec).toEqual(jasmine.any(Function));
+		})
+
+		it('should increment', function() {
+			var c = counterFactory(5);
+			expect(c.inc()).toEqual(6);
+			expect(c.inc()).toEqual(7);
+		})
+
+		it('should decrement', function() {
+			var c = counterFactory(5);
+			expect(c.dec()).toEqual(4);
+			expect(c.dec()).toEqual(3);
+		})
 	})
 
-	it('should be a module', function() {
-		expect(counter.inc).toEqual(jasmine.any(Function));
-		expect(counter.dec).toEqual(jasmine.any(Function));
+	describe('motivation', function() {
+		var test = (function() {
+			var names = [
+				'Brett Caudill',
+				'Jessica Hathaway',
+				'Breiden Busch',
+				'Brian Kemper'
+			];
+
+			var thisName = names[Math.floor(Math.random() * names.length)].split(" ");
+
+			return {
+				first: thisName[0],
+				last: thisName[1]
+			}
+		})();
+
+		it('should exist', function() {
+			expect(motivation).toEqual(jasmine.any(Function))
+		})
+
+		it('should greet correctly', function() {
+			expect(motivation(test.first, test.last)).toEqual(
+				"You're doing awesome, keep it up " + test.first + " " + test.last + "."
+			)
+		})
 	})
 
-	it('should increment', function() {
-		var c = counterFactory(5);
-		expect(c.inc()).toEqual(6);
-		expect(c.inc()).toEqual(7);
+	describe('module', function() {
+		it('should exist', function() {
+			expect(module).toEqual(jasmine.any(Object));
+		})
+
+		it('should have a property called publicMethod', function() {
+			expect(module.publicMethod).toEqual(jasmine.any(Function));
+		})
+
+		it('should invoke publicMethod to get the privateMethod', function() {
+			expect(module.publicMethod()).toEqual('Hi, I\'m phillip, age 29 from Utah');
+		})
 	})
 
-	it('should decrement', function() {
-		var c = counterFactory(5);
-		expect(c.dec()).toEqual(4);
-		expect(c.dec()).toEqual(3);
-	})
-})
+	describe('findPotentialFriends', function() {
+		it('should exist', function() {
+			expect(findPotentialFriends).toEqual(jasmine.any(Function));
+		})
 
-describe('motivation', function() {
-	var test = (function() {
-		var names = [
-			'Brett Caudill',
-			'Jessica Hathaway',
-			'Breiden Busch',
-			'Brian Kemper'
-		];
+		it('should return a function', function() {
+			expect(findPotentialFriends([])).toEqual(jasmine.any(Function));
+		})
 
-		var thisName = names[Math.floor(Math.random() * names.length)].split(" ");
+		it('should return false if a given user is already a friend', function() {
+			expect(findPotentialFriends(["Tom"])("Tom")).toEqual(false)
+		})
 
-		return {
-			first: thisName[0],
-			last: thisName[1]
-		}
-	})();
+		it('should return true if a given user is not a friend', function() {
+			expect(findPotentialFriends(["Tom"])("Tim")).toEqual(true);
+		})
 
-	it('should exist', function() {
-		expect(motivation).toEqual(jasmine.any(Function))
-	})
-
-	it('should greet correctly', function() {
-		expect(motivation(test.first, test.last)).toEqual(
-			"You're doing awesome, keep it up " + test.first + " " + test.last + "."
-		)
-	})
-})
-
-describe('module', function() {
-	it('should exist', function() {
-		expect(module).toEqual(jasmine.any(Object));
+		describe('Black Diamond', function() {
+			it('should create an array of potential second level friends', function() {
+				expect(potentialSecondLevelFriends).toEqual(jasmine.any(Array));
+				expect(potentialSecondLevelFriends).toEqual(['Anne', 'Quinton'])
+			})
+			it('should create an array of potential friends from all users', function() {
+				expect(allPotentialFriends).toEqual(jasmine.any(Array));
+				expect(allPotentialFriends).toEqual(['Anne', 'Quinton', 'Katie', 'Mary'])
+			})
+		})
 	})
 
-	it('should have a property called publicMethod', function() {
-		expect(module.publicMethod).toEqual(jasmine.any(Function));
+	describe('timeOutCounter', function() {
+		beforeEach(function() {
+			jasmine.clock().install();
+			spyOn(console, 'log');
+		});
+
+		afterEach(function() {
+			jasmine.clock().uninstall();
+		})
+
+		it('should exist', function() {
+			expect(timeOutCounter).toEqual(jasmine.any(Function))
+		})
+
+		it('should call setTimeout 6 times', function() {
+			timeOutCounter();
+
+			jasmine.clock().tick(500);
+			expect(console.log.calls.count()).toEqual(1);
+			expect(console.log).toHaveBeenCalledWith(0);
+
+			jasmine.clock().tick(1000);
+			expect(console.log.calls.count()).toEqual(2);
+			expect(console.log).toHaveBeenCalledWith(1);
+
+			jasmine.clock().tick(1000);
+			expect(console.log.calls.count()).toEqual(3);
+			expect(console.log).toHaveBeenCalledWith(2);
+
+			jasmine.clock().tick(1000);
+			expect(console.log.calls.count()).toEqual(4);
+			expect(console.log).toHaveBeenCalledWith(3);
+
+			jasmine.clock().tick(1000);
+			expect(console.log.calls.count()).toEqual(5);
+			expect(console.log).toHaveBeenCalledWith(4);
+
+			jasmine.clock().tick(1000);
+			expect(console.log.calls.count()).toEqual(6);
+			expect(console.log).toHaveBeenCalledWith(5);
+		})
 	})
 
-	it('should invoke publicMethod to get the privateMethod', function() {
-		expect(module.publicMethod()).toEqual('Hi, I\'m phillip, age 29 from Utah');
-	})
-})
-
-describe('timeOutCounter', function() {
-	beforeEach(function() {
-		jasmine.clock().install();
-		spyOn(console, 'log');
-	});
-
-	afterEach(function() {
-		jasmine.clock().uninstall();
-	})
-
-	it('should exist', function() {
-		expect(timeOutCounter).toEqual(jasmine.any(Function))
-	})
-
-	it('should call setTimeout 6 times', function() {
-		timeOutCounter();
-
-		jasmine.clock().tick(500);
-		expect(console.log.calls.count()).toEqual(1);
-		expect(console.log).toHaveBeenCalledWith(0);
-
-		jasmine.clock().tick(1000);
-		expect(console.log.calls.count()).toEqual(2);
-		expect(console.log).toHaveBeenCalledWith(1);
-
-		jasmine.clock().tick(1000);
-		expect(console.log.calls.count()).toEqual(3);
-		expect(console.log).toHaveBeenCalledWith(2);
-
-		jasmine.clock().tick(1000);
-		expect(console.log.calls.count()).toEqual(4);
-		expect(console.log).toHaveBeenCalledWith(3);
-
-		jasmine.clock().tick(1000);
-		expect(console.log.calls.count()).toEqual(5);
-		expect(console.log).toHaveBeenCalledWith(4);
-
-		jasmine.clock().tick(1000);
-		expect(console.log.calls.count()).toEqual(6);
-		expect(console.log).toHaveBeenCalledWith(5);
-	})
-})
-
-
-describe('funcArray', function () {
-	it('should exist', function () {
-		expect(funcArray).toBeDefined();
-	})
-	it('should contain exactly six elements', function () {
-		expect(funcArray.length).toBe(6);
-	})
-	it('should return the correct values', function () {
-		expect(funcArray[0]()).toBe(0);
-		expect(funcArray[1]()).toBe(1);
-		expect(funcArray[2]()).toBe(2);
-		expect(funcArray[3]()).toBe(3);
-		expect(funcArray[4]()).toBe(4);
-		expect(funcArray[5]()).toBe(5);
-	})
-})
 
 });
