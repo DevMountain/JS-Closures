@@ -36,7 +36,7 @@ another variable called 'inner'. */
 
 function callFriend(name) {
   function dial(number) {
-    return 'Calling ' + friend + ' at ' + number
+    return 'Calling ' + name + ' at ' + number
   }
   return dial
 }
@@ -134,7 +134,7 @@ function motivation(firstname, lastname) {
 
 }
 
-motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
 
 
 
@@ -150,9 +150,9 @@ motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 6 ******/
-/* Inside the return create a publicMethod property that is a function that
-invokes privateMethod. After you create the privateMethod. Invoke it by calling
-module.publicMethod(); outside the module scope */
+/* Inside the module's return object create a publicMethod function that
+invokes privateMethod. Invoke this by calling module.publicMethod(); outside
+the module scope */
 
 var module = (function() {
   var person = {
@@ -166,16 +166,12 @@ var module = (function() {
   }
 
   // Anything that is being returned is made public and can be invoked from
-	// outside our lexical scope
-
+  // outside our lexical scope
   return {
     // Code here.
   };
 
 })();
-
-// Uncomment this after you create your public method
-//   module.publicMethod();
 
 
 
