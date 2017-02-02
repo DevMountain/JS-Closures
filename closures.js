@@ -221,7 +221,8 @@ to 5. What we need to do is console.log(i) so that it logs like so:
  5 seconds after call - log 4
  6 seconds after call - log 5
  However, because each call to logCounter occurs after the loop has finished,
- the value of i has changed before the console.log executes. We'll
+ the value of i has changed before the console.log executes. We'll need to use
+ a closure to preserve a reference to i at the time of execution.
 
  Fix the code below to log the desired output.
  */
