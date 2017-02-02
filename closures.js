@@ -135,7 +135,7 @@ function motivation(firstname, lastname){
 
 }
 
-motivation('Billy', 'Bob'); // 'Your doing awesome keep it up Billy Bob
+motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob
 
 
 
@@ -188,48 +188,27 @@ var module = (function() {
 
 
 /******************************************************************************\
-	#PROBLEM-07
+	#Black Diamond
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 7 ******/
-/* Here we have a for loop that will iterate as long as i is less than or equal
-to 5. What we need to do is console.log(i) so that it logs ( 0 then 1 then 2
-then 3, etc). Run this code in your console to see what the output is. */
+/* 
+In timeOutCounter we have a for loop that will iterate as long as i is less than or equal
+to 5. We want to console.log(i) so that it logs each value of i ( 0 then 1 then 2
+then 3, etc) at the desired interval. However, because each call to logCounter occurs after
+the loop has executed, the value of i has changed before the console.log executes. Run this 
+code in your console to see the output.
 
-// To make this code work you will need to create a new scope for every iteration.
+Fix the code below to log the desired output.   
+*/
+
 function timeOutCounter() {
   for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-      console.log(i);
-    }, i * 1000)
+    setTimeout(logCounter, i * 1000)
   }
 
-  function newScope(i) {
+  function logCounter() {
     console.log(i)
   }
 }
 timeOutCounter();
-
-
-
-
-
-
-/******************************************************************************\
-	#PROBLEM-08
-\******************************************************************************/
-
-var funcArray = [];
-
-/*
-  Make the following code work
-
-  funcArray[0]() //0
-  funcArray[1]() //1
-  funcArray[2]() //2
-  funcArray[3]() //3
-  funcArray[4]() //4
-  funcArray[5]() //5
-
-  *Hint: Don't let this fool you. Break down what's really happening here.
-*/
