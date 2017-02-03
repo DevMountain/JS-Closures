@@ -91,7 +91,10 @@ properly. */
 up/down counter. The first function is called inc, this function is responsible
 for incrementing the value once. The second function is called dec, this
 function is responsible for decrementing the value by one. You will need to use
-the module pattern to achieve this. */
+the module pattern to achieve this. 
+Information on the module pattern available here: 
+http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
+*/
 
 function counterFactory(value) {
 
@@ -104,6 +107,10 @@ function counterFactory(value) {
 
 
 counter = counterFactory(10);
+// counter.inc() // 11
+// counter.inc() // 12
+// counter.inc() // 13
+// counter.dec() // 12
 
 
 
