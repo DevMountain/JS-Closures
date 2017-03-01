@@ -16,8 +16,10 @@ another variable called 'inner'. */
 
 // Code Here
 
-//Once you do that, invoke inner.
+var inner = outer(name);
 
+//Once you do that, invoke inner.
+inner();
 //Code Here
 
 
@@ -48,6 +50,9 @@ in your console. */
 
   //Code Here
 
+var callJake = callFriend("Jake")
+
+callJake('435-555-9248');
 
 
 
@@ -65,13 +70,19 @@ in your console. */
 properly. */
 
 //Code Here
-
-//Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+function makeCounter() {
+	var total = 0;
+  return function(){
+    return total += 1;
+  }
+}
+// Uncomment this once you make your function
+  var count = makeCounter();
+  // console.log(count);
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 
@@ -91,26 +102,30 @@ properly. */
 up/down counter. The first function is called inc, this function is responsible
 for incrementing the value once. The second function is called dec, this
 function is responsible for decrementing the value by one. You will need to use
-the module pattern to achieve this. 
-Information on the module pattern available here: 
+the module pattern to achieve this.
+Information on the module pattern available here:
 http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-example?answertab=votes#tab-top
 */
 
 function counterFactory(value) {
-
-  // Code here.
-
-
   return {
+    inc: function() {
+      return value += 1
+    },
+    dec: function() {
+      return value -= 1
+    }// Code here
+
   }
+
 }
 
 
 counter = counterFactory(10);
-// counter.inc() // 11
-// counter.inc() // 12
-// counter.inc() // 13
-// counter.dec() // 12
+counter.inc() // 11
+counter.inc() // 12
+counter.inc() // 13
+counter.dec() // 12
 
 
 
@@ -128,20 +143,21 @@ counter = counterFactory(10);
 /****** INSTRUCTIONS PROBLEM 5 ******/
 /* Inside the motivation function create another function called message that
 will return 'You're doing awesome, keep it up firstname lastname.' */
-
 function motivation(firstname, lastname) {
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
 
   // code message function here.
-
+  function message() {
+    return welcomeText + firstname + " " + lastname + ".";
+  }
 
   //Uncommment this to return the value of your invoked message function
-  //return message();
+  return message();
 
 }
 
-motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
+motivation('Sergio', 'Barker'); // 'You're doing awesome keep it up Billy Bob.
 
 
 
@@ -175,10 +191,15 @@ var module = (function() {
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    // Code here.
+    publicMethod: function(){
+      privateMethod();
+    }// Code here.
   };
-
 })();
+
+
+
+
 
 
 
