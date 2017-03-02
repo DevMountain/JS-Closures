@@ -192,12 +192,11 @@ var module = (function() {
   // outside our lexical scope
   return {
     publicMethod: function(){
-      privateMethod();
     }// Code here.
   };
 })();
 
-
+privateMethod(module.publicMethod)
 
 
 
