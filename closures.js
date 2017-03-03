@@ -173,9 +173,9 @@ motivation('Sergio', 'Barker'); // 'You're doing awesome keep it up Billy Bob.
 \******************************************************************************/
 
 /****** INSTRUCTIONS PROBLEM 6 ******/
-/* Inside the module's return object create a publicMethod function that
-invokes privateMethod. Invoke this by calling module.publicMethod(); outside
-the module scope */
+// Inside the modules return object create a publicMethod function that
+// invokes privateMethod. Invoke this by calling module.publicMethod(); outside
+// the module scope
 
 var module = (function() {
   var person = {
@@ -191,12 +191,18 @@ var module = (function() {
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
-    publicMethod: function(){
-    }// Code here.
-  };
+    publicMethod: function() {
+    	return privateMethod()
+      }
+    }
+    // module.publicMethod()
+// Code here.
+// module.publicMethod();
 })();
 
-privateMethod(module.publicMethod)
+
+
+
 
 
 
