@@ -3,10 +3,10 @@
 JS-Closures
 =========
 
-##Objective
+## Objective
 Better understand Javascript closures by completing a series of activities
 
-##Directions
+## Directions
 Fork this repo, clone your fork, then open closures.js and complete all the activities.
 *COMMIT AND PUSH YOUR CODE OFTEN!*
 
