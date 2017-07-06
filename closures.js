@@ -176,7 +176,6 @@ motivation('Sergio', 'Barker'); // 'You're doing awesome keep it up Billy Bob.
 // Inside the modules return object create a publicMethod function that
 // invokes privateMethod. Invoke this by calling module.publicMethod(); outside
 // the module scope
-
 var module = (function() {
   var person = {
     name: "phillip",
@@ -195,9 +194,7 @@ var module = (function() {
     	return privateMethod()
       }
     }
-    // module.publicMethod()
-// Code here.
-// module.publicMethod();
+
 })();
 
 
@@ -221,12 +218,24 @@ var secondLevelFriends = ["Anne", "Harry", "Quinton"];
 var allUsers = ["Tom", "Dick", "Harry", "Anne", "Quinton", "Katie", "Mary"];
 
 function findPotentialFriends(existingFriends) {
+  return function(user) {
+    for (var i = 0; i < existingFriends.length; i++) {
+  		if (existingFriends[i] == user) {
+        return false
+      }
+    }
+    return true
+  }
+  }
 
-}
+
+
+
+findPotentialFriends("Katie");
 
 var isNotAFriend = findPotentialFriends( friends );
-// isNotAFriend(allUsers[0]); // false
-// isNotAFriend(secondLevelFriends[2]); // true
+//isNotAFriend(allUsers[0]); // false
+//isNotAFriend(secondLevelFriends[2]); // true
 
 
 /******************************************************************************\
