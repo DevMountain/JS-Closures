@@ -14,11 +14,11 @@ function outer() {
 closure over the name variable. Invoke outer saving the return value into
 another variable called 'inner'. */
 
-// Code Here
+var inner = outer();// Code Here
 
 //Once you do that, invoke inner.
 
-//Code Here
+inner();//Code Here
 
 
 
@@ -46,10 +46,10 @@ function callFriend(name) {
 Create a callJake function that when invoked with '435-555-9248' returns 'Calling Jake at 435-555-9248'
 in your console. */
 
-  //Code Here
+var callJake = callFriend("Jake");
+callJake("435-555-9248");
 
-
-
+//code here
 
 
 
@@ -64,7 +64,16 @@ in your console. */
 /* Write a function called makeCounter that makes the following code work
 properly. */
 
-//Code Here
+function makeCounter(){
+  var counter = 0;
+    
+        return function(){
+
+          return counter += 1;
+
+  }
+  
+}//Code Here
 
 //Uncomment this once you make your function
 //   var count = makeCounter();
@@ -98,12 +107,22 @@ http://stackoverflow.com/questions/17776940/javascript-module-pattern-with-examp
 
 function counterFactory(value) {
 
-  // Code here.
-
-
-  return {
+  function inc() {
+    value = value +1
+    return value;
   }
-}
+ 
+ function dec() {
+    value = value -1
+    return value;
+  }
+ 
+ 
+ return {
+    inc: inc,
+    dec: dec
+  }
+ }
 
 
 counter = counterFactory(10);
@@ -132,16 +151,21 @@ will return 'You're doing awesome, keep it up firstname lastname.' */
 function motivation(firstname, lastname) {
 
   var welcomeText = 'You\'re doing awesome, keep it up ';
-
-  // code message function here.
-
-
-  //Uncommment this to return the value of your invoked message function
-  //return message();
+  
+     function message(){
+       
+      return welcomeText + firstname + " " + lastname +".";
+      
+      
+     }// code message function here.
+  
+  
+    //Uncommment this to return the value of your invoked message function
+    return message();
 
 }
 
-motivation('Billy', 'Bob'); // 'You're doing awesome keep it up Billy Bob.
+motivation('Billy', 'Bob'); // // fun'You're doing awesome keep it up Billy Bob.
 
 
 
@@ -175,11 +199,16 @@ var module = (function() {
   // Anything that is being returned is made public and can be invoked from
   // outside our lexical scope
   return {
+
+    publicMethod: function(){
+      return privateMethod();
+    }
     // Code here.
   };
 
 })();
 
+module.publicMethod();
 
 
 /******************************************************************************\
@@ -195,7 +224,14 @@ var secondLevelFriends = ["Anne", "Harry", "Quinton"];
 var allUsers = ["Tom", "Dick", "Harry", "Anne", "Quinton", "Katie", "Mary"];
 
 function findPotentialFriends(existingFriends) {
-
+  var friend = ["Tom", "Dick", "Harry"];
+  return function(people){
+    for (var i = 0; i < friends.length; i++){
+      if (friends[i] === people){
+        return false;
+      }
+    }return true;
+  }
 }
 
 var isNotAFriend = findPotentialFriends( friends );
@@ -234,11 +270,14 @@ to 5. What we need to do is console.log(i) so that it logs like so:
  Fix the code below to log the desired output.
  */
 
-function timeOutCounter() {
-  for (var i = 0; i <= 5; i++) {
-    setTimeout(function() {
-    	console.log(i)
-	}, i * 1000)
+ function timeOutCounter() {
+  for (var i=1; i<=5; i++) {
+    (function(j){
+      
+      setTimeout( function timer(){
+        console.log( j );
+      }, j*1000 );
+    })(i);
   }
 }
-timeOutCounter();
+timeOutCounter()
