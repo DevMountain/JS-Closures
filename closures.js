@@ -13,11 +13,11 @@ function outer() {
 /* Above you're given a function that returns another function which has a
 closure over the name variable. Invoke outer saving the return value into
 another variable called 'inner'. */
-
+var inner = outer();
 // Code Here
 
 //Once you do that, invoke inner.
-
+inner();
 //Code Here
 
 
@@ -47,7 +47,12 @@ Create a callJake function that when invoked with '435-555-9248' returns 'Callin
 in your console. */
 
   //Code Here
-
+function callJake(number) {
+    var name = "Jake";
+    var number = number;
+    console.log(callFriend(name));
+}
+callJake('435-555-9248');
 
 
 
